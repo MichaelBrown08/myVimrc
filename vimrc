@@ -7,6 +7,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 " Initialize plugin system
 call plug#end()
 
