@@ -1,18 +1,14 @@
 set number
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
+Plug 'prettier/vim-prettier', {'do': 'npm install'}
 Plug 'sheerun/vim-polyglot'
-Plug 'w0rp/ale'
 Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+Plug 'nathanaelkane/vim-indent-guides'
 " Initialize plugin system
 call plug#end()
-
-let g:ale_fixers = {'javascript': ['eslint']}
-
-let g:ale_fix_on_save = 1
 
 " Autostart NERDTree
 autocmd StdinReadPre * let s:std_in=1
@@ -37,3 +33,7 @@ au FileType typescript setlocal formatprg=prettier\ --parser\ typescript
 au FileType html setlocal formatprg=js-beautify\ --type\ html
 au FileType scss setlocal formatprg=prettier\ --parser\ css
 au FileType css setlocal formatprg=prettier\ --parser\ css
+
+"-- Vim Indent Guides --
+set background=dark
+let g:indent_guides_enable_on_vim_startup = 1
