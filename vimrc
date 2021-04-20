@@ -7,6 +7,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 " Initialize plugin system
 call plug#end()
@@ -26,6 +29,9 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 "-- AUTOCOMPLETION --
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
+
+" -- DEOPLETE autocompletion --
+let g:deoplete#enable_at_startup = 1
 
 "-- Vim Prettier settings --
 au FileType javascript setlocal formatprg=prettier
