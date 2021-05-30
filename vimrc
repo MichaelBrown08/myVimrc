@@ -7,10 +7,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'Shougo/deoplete.nvim'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'roxma/nvim-yarp'
+" Plug 'roxma/vim-hug-neovim-rpc'
 " Initialize plugin system
 call plug#end()
 
@@ -31,7 +30,8 @@ filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
 " -- DEOPLETE autocompletion --
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
+" inoremap <silent><expr> <TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 "-- Vim Prettier settings --
 au FileType javascript setlocal formatprg=prettier
@@ -40,6 +40,10 @@ au FileType typescript setlocal formatprg=prettier\ --parser\ typescript
 au FileType html setlocal formatprg=js-beautify\ --type\ html
 au FileType scss setlocal formatprg=prettier\ --parser\ css
 au FileType css setlocal formatprg=prettier\ --parser\ css
+
+" -- Vim Prettier autoformat without pragma --
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
 
 "-- Vim Indent Guides --
 set background=dark
