@@ -48,3 +48,7 @@ let g:prettier#autoformat_require_pragma = 0
 "-- Vim Indent Guides --
 set background=dark
 let g:indent_guides_enable_on_vim_startup = 1
+
+"-- Coc Settings --
+nmap <silent> gd :call CocAction('jumpDefinition', 'vsplit')<CR>
+nmap <silent> gs :call CocAction('jumpDefinition', 'split')<CR>
