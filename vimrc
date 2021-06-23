@@ -52,6 +52,11 @@ let g:indent_guides_enable_on_vim_startup = 1
 "-- Coc Settings --
 nmap <silent> gd :call CocAction('jumpDefinition', 'vsplit')<CR>
 nmap <silent> gs :call CocAction('jumpDefinition', 'split')<CR>
+nnoremap <silent> go :<C-u>CocList outline<CR>
+nnoremap <silent> gO :<C-u>CocList --tab outline<CR>
 
 "-- New line in Normal --
 nmap <CR> o<Esc>
+
+"-- Fix for Vim opening in replace mode --
+set t_u7=
