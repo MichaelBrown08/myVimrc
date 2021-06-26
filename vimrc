@@ -1,13 +1,26 @@
 set number
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
+" auto format javascript, typescript, less, scss, css, json, graphql and
+" markdown files
 Plug 'prettier/vim-prettier', {'do': 'npm install'}
+
+" syntax and indentation support for just about every language
 Plug 'sheerun/vim-polyglot'
+
+" vimscript status bar
 Plug 'vim-airline/vim-airline'
+
+" file browser tab
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+
+" visual indentation lines
 Plug 'nathanaelkane/vim-indent-guides'
+
+" conquer of completion - all things autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " Plug 'roxma/nvim-yarp'
 " Plug 'roxma/vim-hug-neovim-rpc'
 " Initialize plugin system
@@ -56,7 +69,7 @@ nnoremap <silent> go :<C-u>CocList outline<CR>
 nnoremap <silent> gO :<C-u>CocList --tab outline<CR>
 
 "-- New line in Normal --
-nmap <CR> o<Esc>
+nnoremap <CR> o<Esc>
 
 "-- Fix for Vim opening in replace mode --
 set t_u7=
