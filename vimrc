@@ -19,6 +19,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'nathanaelkane/vim-indent-guides'
 
 " conquer of completion - all things autocomplete
+" coc-html, coc-tsserver, coc-pyright, coc-json, coc-css
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Plug 'roxma/nvim-yarp'
