@@ -1,4 +1,4 @@
-set number
+set number splitbelow splitright
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 " auto format javascript, typescript, less, scss, css, json, graphql and
@@ -42,10 +42,6 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 "-- AUTOCOMPLETION --
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
-
-" -- DEOPLETE autocompletion --
-" let g:deoplete#enable_at_startup = 1
-" inoremap <silent><expr> <TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 "-- Vim Prettier settings --
 au FileType javascript setlocal formatprg=prettier
