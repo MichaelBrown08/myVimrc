@@ -22,18 +22,12 @@ Plug 'nathanaelkane/vim-indent-guides'
 " coc-html, coc-tsserver, coc-pyright, coc-json, coc-css
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Plug 'roxma/nvim-yarp'
-" Plug 'roxma/vim-hug-neovim-rpc'
 " Initialize plugin system
 call plug#end()
 
 " Autostart NERDTree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists('s:std_in') && v:this_session == '' | NERDTree | endif
-
-" Autoclose NERDTree if last window open
-"autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
-"    \ quit | endif
 
 " NERDTree remaps
 nnoremap <C-n> :NERDTree<CR>
