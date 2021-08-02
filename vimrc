@@ -1,4 +1,4 @@
-set number splitbelow splitright
+set number splitbelow splitright cursorline
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 " auto format javascript, typescript, less, scss, css, json, graphql and
