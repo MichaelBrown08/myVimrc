@@ -1,42 +1,32 @@
-set number splitbelow splitright cursorline
-" Specify a directory for plugins
+" Set some vim-specific settings
+set number splitright splitbelow cursorline
+
+" Vim-Plug
 call plug#begin('~/.vim/plugged')
-" auto format javascript, typescript, less, scss, css, json, graphql and
-" markdown files
-Plug 'prettier/vim-prettier', {'do': 'npm install'}
-
-" syntax and indentation support for just about every language
-Plug 'sheerun/vim-polyglot'
-
-" vimscript status bar
-Plug 'vim-airline/vim-airline'
-
-" file browser tab
+" Vim features
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-
-" visual indentation lines
+Plug 'vim-airline/vim-airline'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'ryanoasis/vim-devicons'
+Plug 'justinmk/vim-sneak'
+Plug 'machakann/vim-highlightedyank'
+Plug 'jiangmiao/auto-pairs'
 
-" conquer of completion - all things autocomplete
-" coc-html, coc-tsserver, coc-pyright, coc-json, coc-css
+" Code features
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" Initialize plugin system
+Plug 'prettier/vim-prettier', {'do': 'npm install'}
+Plug 'sheerun/vim-polyglot'
+Plug 'mileszs/ack.vim'
+Plug 'psf/black', { 'branch': 'stable' }
+Plug 'tpope/vim-fugitive'
 call plug#end()
-
-" Autostart NERDTree
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') && v:this_session == '' | NERDTree | endif
-
-" NERDTree remaps
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
 
 "-- AUTOCOMPLETION --
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
+" vim-prettier ------------------------------------------------
 "-- Vim Prettier settings --
 au FileType javascript setlocal formatprg=prettier
 au FileType javascript.jsx setlocal formatprg=prettier
@@ -48,19 +38,39 @@ au FileType css setlocal formatprg=prettier\ --parser\ css
 " -- Vim Prettier autoformat without pragma --
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
+" -------------------------------------------------------------
+
+" nerdtree ----------------------------------------------------
+" Autostart NERDTree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') && v:this_session == '' | NERDTree | endif
+
+" NERDTree remaps
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+" -------------------------------------------------------------
+
+" coc nvim settings -------------------------------------------
+nmap <silent> gd :call CocAction('jumpDefinition', 'vsplit')<CR>
+nmap <silent> gs :call CocAction('jumpDefinition', 'split')<CR>
+nmap <silent> gi <Plug>(coc-implementation)
+nnoremap <silent> go :<C-u>CocList outline<CR>
+nnoremap <silent> gO :<C-u>CocList --tab outline<CR>
+
+"-- CocFloating color change
+highlight CocFloating ctermbg=4
+" -------------------------------------------------------------
 
 "-- Vim Indent Guides --
 set background=dark
 let g:indent_guides_enable_on_vim_startup = 1
 
-"-- Coc Settings --
-nmap <silent> gd :call CocAction('jumpDefinition', 'vsplit')<CR>
-nmap <silent> gs :call CocAction('jumpDefinition', 'split')<CR>
-nnoremap <silent> go :<C-u>CocList outline<CR>
-nnoremap <silent> gO :<C-u>CocList --tab outline<CR>
+"-- Ack.vim using Silversearcher-ag --
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 "-- New line in Normal --
-nnoremap <CR> o<Esc>
+nmap <CR> o<Esc>
 
 "-- Fix for Vim opening in replace mode --
 set t_u7=
+set encoding=UTF-8
