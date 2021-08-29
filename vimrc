@@ -20,6 +20,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'mileszs/ack.vim'
 Plug 'psf/black', { 'branch': 'stable' }
 Plug 'tpope/vim-fugitive'
+Plug 'Valloric/MatchTagAlways'
 call plug#end()
 
 "-- AUTOCOMPLETION --
